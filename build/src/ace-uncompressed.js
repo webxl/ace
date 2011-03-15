@@ -7769,7 +7769,7 @@ var EditSession = function(text, mode) {
         }
     };
 
-    this.tokenRe = /^[#\w\d]+/g;
+    this.tokenRe = /^[\-#\w\d]+/g;
     this.nonTokenRe = /^(?:[^\w\d]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\u4E00-\u9FFF\uF900-\uFAFF\u3400-\u4DBF])+/g;
 
     this.getWordRange = function(row, column) {
@@ -12552,27 +12552,12 @@ var Text = function(parentEl) {
         return fragment;
     };
 
-    this.nonTextTokenCount = 0;
     this.update = function(config) {
         this.$computeTabString();
         this.config = config;
 
         var html = [];
-        var tokens = this.tokenizer.getTokens(config.firstRow, config.lastRow);
-		/*var ntCount = 0;
-		for(var i=0; i<tokens.length; i++) {
-			for(var j=0; j<tokens[i].tokens.length; j++) {
-				var token = tokens[i].tokens[j];
-				if (token.type != "text") {
-					ntCount++;
-				}
-			}
-		}
-		if (ntCount != this.nonTextTokenCount) {
-			this.session._dispatchEvent("changeNonTextTokens", {data: ntCount});
-		}
-		this.nonTextTokenCount = ntCount;
-		*/
+        var tokens = this.tokenizer.getTokens(config.firstRow, config.lastRow)
         var fragment = this.$renderLinesFragment(config, config.firstRow, config.lastRow);
 
         // Clear the current content of the element and add the rendered fragment.

@@ -169,7 +169,7 @@ console.log('# ace modes ---------');
 
 project.assumeAllFilesLoaded();
 [
-    "css", "html", "javascript", "php", "python", "xml", "ruby", "java", "c_cpp",
+    "css", "less", "html", "javascript", "php", "python", "xml", "ruby", "java", "c_cpp",
     "coffee", "perl", "csharp", "svg"
 ].forEach(function(mode) {
     console.log("mode " + mode);
@@ -221,7 +221,8 @@ console.log('# ace themes ---------');
 [
     "clouds", "clouds_midnight", "cobalt", "dawn", "idle_fingers", "kr_theme",
     "mono_industrial", "monokai", "pastel_on_dark", "twilight", "eclipse",
-    "merbivore", "merbivore_soft", "vibrant_ink"
+    "merbivore", "merbivore_soft", "vibrant_ink", 
+	"knife" // css knife theme
 ].forEach(function(theme) {
     copy({
         source: [{
